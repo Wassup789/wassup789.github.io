@@ -4,6 +4,7 @@
 	<title>YouTube Notifications - Release Archive</title>
 	<link rel="stylesheet" href="	https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
 	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<style>
 		.demo-header .mdl-layout__header-row {
@@ -25,22 +26,86 @@
 		}
 		.demo-content {
 			border-radius: 2px;
-			padding: 80px 56px;
+			padding: 40px 56px 80px;
 			margin-bottom: 80px;
 		}
 		#releases {
 			width: 100%;
 		}
+		#chromewebstore {
+			height: 50px;
+		}
 	</style>
 	<script>
-	
+		var data = [
+			{
+				"version": "1.1.0.1",
+				"version": "1.1.0.1",
+				"date": "09/21/2015",
+				"links": {
+					"changelog": "https://github.com/Wassup789/YouTube-Notifications/blob/master/CHANGELOG.md#v1101-09-21-2015",
+					"download": "https://dl.dropboxusercontent.com/u/14210090/Youtube%20Notifications/Youtube_Notifications_v1.1.0.1.crx"
+				}
+			},
+			{
+				"version": "1.0.9.2",
+				"date": "09/16/2015",
+				"links": {
+					"changelog": "https://github.com/Wassup789/YouTube-Notifications/blob/master/CHANGELOG.md#v1092-09-16-2015",
+					"download": "https://dl.dropboxusercontent.com/u/14210090/Youtube%20Notifications/Youtube_Notifications_v1.0.9.2.crx"
+				}
+			},
+			{
+				"version": "1.0.9.1",
+				"date": "07/15/2014",
+				"links": {
+					"changelog": "https://github.com/Wassup789/YouTube-Notifications/blob/master/CHANGELOG.md#v1091-07-15-2014",
+					"download": "https://dl.dropboxusercontent.com/u/14210090/Youtube%20Notifications/Youtube_Notifications_v1.0.9.1.crx"
+				}
+			},
+			{
+				"version": "1.0.9.0",
+				"date": "07/12/2014",
+				"links": {
+					"changelog": "https://github.com/Wassup789/YouTube-Notifications/blob/master/CHANGELOG.md#v1090-07-12-2014",
+					"download": "https://dl.dropboxusercontent.com/u/14210090/Youtube%20Notifications/Youtube_Notifications_v1.0.9.0.crx"
+				}
+			},
+			{
+				"version": "1.0.8.0",
+				"date": "02/14/2014",
+				"links": {
+					"changelog": "https://github.com/Wassup789/YouTube-Notifications/blob/master/CHANGELOG.md#v1080-02-14-2014",
+					"download": "#"
+				}
+			},
+		];
+		window.onload = function(){
+			var tbody = document.querySelector("#releases tbody");
+			for(var i = 0; i < data.length; i++){
+				var node = document.querySelector("#masterRow").cloneNode(true);
+				node.style.display = "table-row";
+				if(data[i].links.download != "#")
+					node.children[0].children[0].href = data[i].links.download;
+				else
+					node.children[0].children[0].style.display = "none";
+				node.children[1].innerHTML = "v" + data[i].version;
+				node.children[2].innerHTML = moment(data[i].date, "MM/DD/YYYY").format("MMMM Do, YYYY");
+				node.children[3].children[0].href = data[i].links.changelog;
+				tbody.appendChild(node);
+			}
+		}
 	</script>
 </head>
 <body>
 	<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
 		<header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
 			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title">YouTube Notifications - Release Archive</span>
+				<span class="mdl-layout-title">YouTube Notifications</span>
+				<div class="mdl-layout-spacer"></div>
+					<a href="https://chrome.google.com/webstore/detail/youtube-notifications/cilgbgkmanbbecbjihnbpeaoodmgchom">
+						<img id="chromewebstore" src="https://raw.githubusercontent.com/Wassup789/Youtube-Notifications/master/img/chromewebstore.png" />
+					</a>
 			</div>
 		</header>
 		<div class="demo-ribbon"></div>
@@ -59,7 +124,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr id="masterRow" style="display: none;">
 								<td class="mdl-data-table__cell--non-numeric">
 									<a class="download_link" href="#">
 										<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
@@ -67,8 +132,8 @@
 										</button>
 									</a>
 								</td>
-								<td class="mdl-data-table__cell--non-numeric">v1.0.9.2</td>
-								<td class="mdl-data-table__cell--non-numeric">September 16th 2015</td>
+								<td class="mdl-data-table__cell--non-numeric"></td>
+								<td class="mdl-data-table__cell--non-numeric"></td>
 								<td class="mdl-data-table__cell--non-numeric">
 									<a class="changelog_link" href="#">Link</a>
 								</td>
@@ -80,8 +145,8 @@
 			<footer class="demo-footer mdl-mini-footer">
 				<div class="mdl-mini-footer--left-section">
 					<ul class="mdl-mini-footer--link-list">
-						<li><a href="#">Help</a></li>
-						<li><a href="#">Privacy and Terms</a></li>
+						<li><a href="https://github.com/Wassup789">Wassup789</a></li>
+						<li><a href="https://github.com/Wassup789/YouTube-Notifications">Home</a></li>
 						<li><a href="#">User Agreement</a></li>
 					</ul>
 				</div>
