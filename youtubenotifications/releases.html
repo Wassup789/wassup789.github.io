@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>YouTube Notifications - Release Archive</title>
-	<link rel="stylesheet" href="	https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.red-indigo.min.css">
 	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -13,7 +13,7 @@
 		.demo-ribbon {
 			width: 100%;
 			height: 40vh;
-			background-color: #3F51B5;
+			background-color: #CC181E;
 			-webkit-flex-shrink: 0;
 			-ms-flex-negative: 0;
 			flex-shrink: 0;
@@ -35,6 +35,9 @@
 		#chromewebstore {
 			height: 50px;
 			margin-right: -30px;
+		}
+		.download_link button {
+			margin-top: -4px;
 		}
 	</style>
 	<script>
@@ -94,6 +97,7 @@
 			var tbody = document.querySelector("#releases tbody");
 			for(var i = 0; i < data.length; i++){
 				var node = document.querySelector("#masterRow").cloneNode(true);
+				node.removeAttribute("id");
 				node.style.display = "table-row";
 				if(data[i].links.download != "#")
 					node.children[0].children[0].href = data[i].links.download;
@@ -123,7 +127,7 @@
 			<div class="demo-container mdl-grid">
 				<div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
 				<div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-					<h3>Release Archives:</h3>
+					<h3>Release Archives</h3>
 					<table id="releases" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
 						<thead>
 							<tr>
