@@ -57,8 +57,10 @@
 	font-weight: 700;
 	font-size: 14px;
 }
-.header-navigation .mdl-navigation__link:last-child {
-	margin-right: 10px;
+@media screen and (max-width: 1024px) {
+	.header-navigation .mdl-navigation__link {
+		height: 56px;
+	}
 }
 
 .header-navigation .mdl-navigation__link:hover, .header-navigation .mdl-navigation__link.active {
