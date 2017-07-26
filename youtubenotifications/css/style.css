@@ -1,0 +1,11 @@
+.demo-ribbon {
+    background-color: #CC181E;
+}
+.header-navigation .mdl-navigation__link:hover, .header-navigation .mdl-navigation__link.active {
+    border-color: #9e171b;
+}
+
+#chromewebstore {
+    height: 50px;
+    margin: 0 -30px 0 10px;
+}

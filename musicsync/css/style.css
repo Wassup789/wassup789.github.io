@@ -1,0 +1,6 @@
+.demo-ribbon {
+    background-color: #FFA500;
+}
+.header-navigation .mdl-navigation__link:hover, .header-navigation .mdl-navigation__link.active {
+    border-color: #c58000;
+}
